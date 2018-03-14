@@ -1,9 +1,11 @@
+# TODO: Create a finish screen.
+# Create a screen with "roll" button to replace current enter prompt. 
 # First, I typed import random so I could use the random module.
 import random
 personalities = ("Rookie", "Washed up", "Retired", "Unhinged", "Slick", "Incompetent")
 bear_types = ("Grizzly Bear", "Polar Bear", "Panda", "Black Bear", "Sun Bear", "Honey Badger")
 criminal_roles = ("Enforcer", "Mastermind", "Getaway Driver", "Hacker", "Thief", "Face")
-# user input to starts the process.
+
 def stats():
     personality_stat = random.choice(personalities)
     bear_types_stat = random.choice(bear_types)
@@ -13,16 +15,19 @@ def stats():
         {personality_stat}
         {bear_types_stat}
         {criminal_roles_stat}""") 
-    input("Welcome to the gang, ya filthy animal! Let's figure out your bear name. Hit ENTER, okay?")
-# TODO: Create a finish screen.
-#       Create a screen with "roll" button to replace current enter prompt. 
+    input("Lookin' good, ya filthy animal! Now let's figure out your bear name. Hit ENTER, okay?")
+
+# Function for user to input their own name.
 def self_name():
     self_name_choice = input("Would you like to think up your own bear name? Y/N? \n")
     if self_name_choice.upper() == "Y":
         typed_name = input("Now we're cookin' with gas! Enter your bear name:\n")
-        print("Nice ta meetcha, " + typed_name + "!")   
+        print("\nNice ta meetcha, " + typed_name + ". \nWelcome to the gang!")
     else:
-        print("Okee doke! Let's proceed.")         
+        print("Okee doke! Let's proceed.") 
+        gen_or_not()
+ #If user answers N to self_name_choice, call gen_or_not function.       
+
 # First & Last name strings to randomize
 def name(assignment):   
     boy_name = ("Bugsy", "Artie", "Mooksie", "Petey", "Vinnie", "Lou", "Mungo", "Mack", "Tony", "Teddy", "Bobo", "Chucky", "Bobby", "Lucio", "Musky", "Sticks", "Clawsy", "Yogi")
@@ -40,13 +45,11 @@ def name(assignment):
     surname = random.choice(surname)
     return first_name + " " + surname
 
-#added print("mazel tov, kid." to end of every function bc it stopped printing in its old position.)
 def ungender():
     while True:
         print("\nAh, what's gender anyways but a social construct?")
         input("Hit ENTER again and I'll cook up a real crackerjack of a name for ya.")
-        print("And your name is: "+ name("U")+"!")
-        print("Mazel tov, kid.")
+        print("\nAnd your name is: "+ name("U") + "! \nWelcome to the gang!")
         return
     
 def gender():
@@ -55,20 +58,18 @@ def gender():
         if male_or_fem.upper() == "M":
             print("Nice to meetcha, pal!")
             input("Hit ENTER again and I'll cook up a real crackerjack name for ya. \n")
-            print("And your name is: "+ name("M")+"!")
-            print("Mazel tov, kid.")
+            print("\nAnd your name is: "+ name("M") + "! \nWelcome to the gang!")
             return
         elif male_or_fem.upper() == "F":
             print("Pleased to meetcha miss. Charmed, I'm sure.")
             input("Hit ENTER again and I'll cook up a real crackerjack name for ya.\n")
-            print("And your name is: "+ name("F")+"!") 
-            print("Mazel tov, kid.")
+            print("\nAnd your name is: "+ name("F") + "! \nWelcome to the gang!") 
             return
         else:
             print("\nWhat's that? Stop bein' a mook and type 'M' or 'F'!")
             gender()
             return            
-#created gen_or_not function.
+#created gen_or_not function for users who don't want to ID as male or female.
 def gen_or_not():
     while True:
         gendered=input ("Ey, I been wonderin'... Does your bear have a gender?: Y/N?")
@@ -84,13 +85,12 @@ def gen_or_not():
             gen_or_not()
             return
 def main():
-# Nested If statements narrow user's name options 
     print("Welcome to da Honey Heist Bearacter Generator")
     input("Press ENTER to create a new character, capeesh?")
-# Function for user to input their own name.
     stats()
     self_name()
-    gen_or_not()
+#added print("mazel tov, kid.") to main() to reduce redundancy.
+    print("\nMazel tov, kid.")
     
 
 if __name__ == "__main__":
