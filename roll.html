@@ -1,7 +1,14 @@
 <html>
+<head>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 <h1> ROLL PAGE </h1>
 <h2> Welcome to the ROLL PAGE!</h2>
 <h3> Herein shall be instructions, buttons to roll (& re-roll) stats, and navigate to name pages.</h3>
 <a href= {% url "index" %}>Return to Home Page</a>
-
+<button><a href= {% url "stats" %}>Someday you will click to roll your stats & navigate to stats page</a></button>
+</body>
 </html>

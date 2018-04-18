@@ -67,6 +67,7 @@ criminal_roles = ("Enforcer", "Mastermind", "Getaway Driver", "Hacker", "Thief",
 # Application definition
 
 INSTALLED_APPS = [
+    'hhbg',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
