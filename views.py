@@ -1,6 +1,8 @@
+from game import settings
 from django.shortcuts import render
 from django.http import HttpResponse
 import random
+
 
 def index(request):
     return render(request, 'index.html')
@@ -10,22 +12,18 @@ def roll(request):
     return render(request, 'roll.html')
 
 def stats(request):
-    return render(request, 'stats.html')
+    personality_stat = random.choice(settings.personalities)
+    bear_types_stat = random.choice(settings.bear_types)
+    criminal_roles_stat = random.choice(settings.criminal_roles)
 
-def name(request):
-    return render(request, 'name.html')
+    return render(request, 'stats.html', {'personality_stat': personality_stat,
+    'bear_types_stat': bear_types_stat, 'criminal_roles_stat': criminal_roles_stat,
+    'postStat': settings.prompts["postStat"]})
 
-def stats():
-    personality_stat = random.choice(personalities)
-    bear_types_stat = random.choice(bear_types)
-    criminal_roles_stat = random.choice(criminal_roles)
-    print(f"""Badda-BOOM! Hey get a load of you, ya stinkin':
-
-        {personality_stat}
-        {bear_types_stat}
-        {criminal_roles_stat}""")
-    input(prompts["postStat"])
-
+def monicker(request):
+    return render(request, 'monicker.html', {'diyNameQuestion': settings.prompts["diyNameQuestion"]})
+#It's all about {'#': settings.prompts["#"]} formula to add your variable to the page!
+"""
 # Function for user to input their own name.
 def self_name():
     self_name_choice = input(prompts["diyNameQuestion"] + "\n")
@@ -36,7 +34,7 @@ def self_name():
         print(prompts["proceed"])
         gen_or_not()
  #If user answers N to self_name_choice, call gen_or_not function.
-
+"""
 # First & Last name strings to randomize
 def name(assignment):
     global boy_name
@@ -44,7 +42,7 @@ def name(assignment):
     global asex_name
     global surname
 # Variable names assigned to randomly selected names
-    if assignment.upper() == "M":
+'''    if assignment.upper() == "M":
         first_name = random.choice(boy_name)
     elif assignment.upper() == "F":
         first_name = random.choice(girl_name)
@@ -52,7 +50,7 @@ def name(assignment):
         first_name = random.choice(asex_name)
     surname = random.choice(surname)
     return first_name + " " + surname
-
+'''
 def ungender():
     while True:
         print("\n" + responses["genRetort"])
@@ -116,3 +114,5 @@ if __name__ == "__main__":
     #return HttpResponse(
     #    "<a href='{% url firstLink %}'>HTTP RESPONSE Navigate to First Link Page</a>"
     #    "<h1>Roll</h1>")
+
+# Create your views here.

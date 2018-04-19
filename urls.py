@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf.urls import url, include
-from . import views
+from game import views
 from django.contrib import admin
 from django.urls import path
 from django.conf import settings
@@ -27,7 +27,7 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^roll/$', views.roll, name='roll'),
     url(r'^stats/$', views.stats, name='stats'),
-    url(r'^name/$', views.name, name='name'),]
+    url(r'^monicker/$', views.monicker, name='monicker')]
 #    path('gender/', views.gender, name='gender'),
 #    url(r'^end/', include('end.urls')),
 #    url(r'^roll/', include('roll.urls')),
