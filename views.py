@@ -12,16 +12,30 @@ def roll(request):
     return render(request, 'roll.html')
 
 def stats(request):
+    global final_crim, final_bt, final_per
     personality_stat = random.choice(settings.personalities)
     bear_types_stat = random.choice(settings.bear_types)
     criminal_roles_stat = random.choice(settings.criminal_roles)
+    final_per = personality_stat
+    final_bt = bear_types_stat
+    final_crim = criminal_roles_stat
+    return render(request, 'stats.html', {'personality_stat': personality_stat,'bear_types_stat': bear_types_stat, 'criminal_roles_stat': criminal_roles_stat,'postStat': settings.prompts["postStat"]})
 
-    return render(request, 'stats.html', {'personality_stat': personality_stat,
-    'bear_types_stat': bear_types_stat, 'criminal_roles_stat': criminal_roles_stat,
-    'postStat': settings.prompts["postStat"]})
+
+def final(request):
+    return render(request, 'final.html', {'final_per': final_per, 'final_bt': final_bt, 'final_crim': final_crim})
+
 
 def monicker(request):
     return render(request, 'monicker.html', {'diyNameQuestion': settings.prompts["diyNameQuestion"]})
+
+def gen_name(request):
+    first_name = random.choice(settings.asex_name)
+    surname = random.choice(settings.surname)
+    U_full_name = first_name + " " + surname
+    return render(request, 'gen_name.html',{'U_full_name': U_full_name})
+
+
 #It's all about {'#': settings.prompts["#"]} formula to add your variable to the page!
 """
 # Function for user to input their own name.

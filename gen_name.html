@@ -4,14 +4,16 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 </head>
 <body>
-<h1> MONICKER PAGE </h1>
-<h2>{{diyNameQuestion}}</h2>
-<h2>Paw the appropriate button.</h2>
+<h1> NAME GENERATOR </h1>
+<h2>And your bear name is:</h2>
+<h2>{{U_full_name}}</h2>
 <br>
-<button><a href= {% url "gen_name" %}>Generate bear name</a></button>
+<button><a href= {% url "final" %}>Final Stats Page</a></button>
 <br>
-<button>Think up my own damned bear name</button>
 <br>
+<button><a href={% url "stats" %}>Re-roll your stats?</a></button>
+<br>
+<h2>{{final_stats}}</h2>
 <button><a href= {% url "index" %}>Home</a></button>
 </body>
 </html>
