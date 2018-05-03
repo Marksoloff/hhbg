@@ -4,9 +4,10 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 </head>
 <body>
-<h1> NAME PAGE </h1>
-<h2>{{diyNameQuestion/}}</h2>
-<h3> The 1st of the name prompt begins here.</h3>
+<h1> GENERIC NAME PAGE </h1>
+<h2>{{ diyNameQuestion }}</h2>
+<h2>{{ first_name }} {{ last_name }}</h2>
 <button><a href= {% url "index" %}>Home</a></button>
+<button><a href= {% url "final" %}>Final Page</a></button>
 </body>
 </html>

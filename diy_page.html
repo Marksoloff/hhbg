@@ -1,0 +1,23 @@
+<html>
+<head>
+</head>
+<body>
+
+<h1> DIY CHOICE PAGE </h1>
+<h2>{{diyNameQuestion}}</h2>
+  <div class= "container">
+<h2>Write your name in the space provided.</h2>
+<br>
+<h3>(No cheating)</h3>
+<form action="/final" method='POST'>
+{% csrf_token %}
+  First name: <input type="text" name="first_name">
+  Last name: <input type="text" name="last_name">
+    <input type="submit" value="Submit"/>
+</form>
+
+</div>
+<br>
+<button><a href= {% url "index" %}>Home</a></button>
+</body>
+</html>

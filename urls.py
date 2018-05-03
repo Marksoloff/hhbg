@@ -18,6 +18,7 @@ from game import views
 from django.contrib import admin
 from django.urls import path
 from django.conf import settings
+from game.views import HomeView
 
 app_name = 'hhbg'
 
@@ -25,13 +26,9 @@ app_name = 'hhbg'
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
-    url(r'^roll/$', views.roll, name='roll'),
     url(r'^stats/$', views.stats, name='stats'),
-    url(r'^monicker/$', views.monicker, name='monicker')]
-#    path('gender/', views.gender, name='gender'),
-#    url(r'^end/', include('end.urls')),
-#    url(r'^roll/', include('roll.urls')),
-#    url(r'^diy/', include('diy.urls')),
-#    url(r'^name/', include('name.urls')),
-#    url(r'^gender/', include('gender.urls')),
-#    path('gender/', views.gender, name='gender'),
+    url(r'^gender_question/$', views.gender_question, name='gender_question'),
+    url(r'^name/$', views.name, name='name'),
+    url(r'^diy_page/$', views.diy_page, name='diy_page'),
+    url(r'^final/$', views.final, name='final')
+]
